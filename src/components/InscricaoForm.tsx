@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';  
 import { db } from '../services/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import InputMask from 'react-input-mask';
@@ -23,8 +23,11 @@ interface FormData {
   disponibilidadeNoiteSemana: string;
   disponibilidadeFinaisSemana: string;
   disponibilidadeFeriados: string;
-  idiomas: string[];
-  curriculoNome?: string; // Adicione o campo para o nome do currículo
+  idiomas: string[]; // Campo de idiomas como array de strings
+  curriculoNome?: string;
+  formacaoAcademica: string; // Campo para Formação Acadêmica
+  instituicao: string; // Campo para Instituição
+  anoConclusao: string; // Campo para Ano de Conclusão
 }
 
 function InscricaoForm() {
@@ -47,10 +50,12 @@ function InscricaoForm() {
     disponibilidadeNoiteSemana: '',
     disponibilidadeFinaisSemana: '',
     disponibilidadeFeriados: '',
-    idiomas: [],
+    idiomas: [], // Inicializa o campo idiomas
+    formacaoAcademica: '', 
+    instituicao: '', 
+    anoConclusao: '' 
   });
 
-  // Estado para armazenar o nome do arquivo do currículo
   const [curriculoNome, setCurriculoNome] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -79,21 +84,20 @@ function InscricaoForm() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setCurriculoNome(e.target.files[0].name); // Armazena o nome do arquivo do currículo
+      setCurriculoNome(e.target.files[0].name);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Combina os campos de endereço em um array antes de enviar para o Firestore
     const enderecoArray = [formData.rua, formData.numero, formData.bairro, formData.cidade, formData.estado];
 
     try {
       await addDoc(collection(db, 'inscricoes'), {
         ...formData,
-        endereco: enderecoArray,  // Armazena o endereço como array
-        curriculoNome: curriculoNome, // Envia o nome do arquivo do currículo
+        endereco: enderecoArray,
+        curriculoNome: curriculoNome
       });
       alert('Inscrição realizada com sucesso!');
       setFormData({
@@ -116,8 +120,11 @@ function InscricaoForm() {
         disponibilidadeFinaisSemana: '',
         disponibilidadeFeriados: '',
         idiomas: [],
+        formacaoAcademica: '',
+        instituicao: '',
+        anoConclusao: ''
       });
-      setCurriculoNome(''); // Reseta o nome do arquivo
+      setCurriculoNome('');
     } catch (error) {
       console.error('Erro ao enviar a inscrição: ', error);
     }
@@ -166,7 +173,37 @@ function InscricaoForm() {
           <input type="text" name="cidade" placeholder="Cidade:" value={formData.cidade} onChange={handleChange} required />
           <input type="text" name="estado" placeholder="Estado:" value={formData.estado} onChange={handleChange} required />
         </div>
-        
+
+        <h3>Formação Acadêmica</h3>
+        <label>Formação Acadêmica:</label>
+        <input type="text" name="formacaoAcademica" value={formData.formacaoAcademica} onChange={handleChange} required />
+
+        <label>Nome da Instituição:</label>
+        <input type="text" name="instituicao" value={formData.instituicao} onChange={handleChange} required />
+
+        <label>Ano de Conclusão:</label>
+        <input
+    type="date"
+    name="anoConclusao"
+    className="date-input centered"
+    value={formData.anoConclusao}
+    onChange={handleChange}
+    required
+/>
+
+
+        <fieldset className="checkbox-group">
+          <legend>Idiomas:</legend>
+          <label><input type="checkbox" name="idiomas" value="Inglês" onChange={handleChange} /> Inglês</label>
+          <label><input type="checkbox" name="idiomas" value="Espanhol" onChange={handleChange} /> Espanhol</label>
+          <label><input type="checkbox" name="idiomas" value="Alemão" onChange={handleChange} /> Alemão</label>
+          <label><input type="checkbox" name="idiomas" value="Francês" onChange={handleChange} /> Francês</label>
+          <label><input type="checkbox" name="idiomas" value="Chinês" onChange={handleChange} /> Chinês</label>
+          <label><input type="checkbox" name="idiomas" value="Japonês" onChange={handleChange} /> Japonês</label>
+          <label><input type="checkbox" name="idiomas" value="Hindi" onChange={handleChange} /> Hindi</label>
+          <label><input type="checkbox" name="idiomas" value="Outro" onChange={handleChange} /> Outro</label>
+        </fieldset>
+
         <h3>Cargo & Disponibilidade</h3>
         <label>Cargo que você está interessado:</label>
         <input type="text" name="cargoInteresse" value={formData.cargoInteresse} onChange={handleChange} required />
@@ -195,10 +232,8 @@ function InscricaoForm() {
           <label><input type="radio" name="disponibilidadeFeriados" value="Não" onChange={handleChange} required /> Não</label>
         </div>
 
-          {/* Campo de upload do currículo */}
-          <label>Upload do Currículo (PDF):</label>
+        <label>Upload do Currículo (PDF):</label>
         <input type="file" accept=".pdf" onChange={handleFileChange} />
-
 
         <button type="submit">Enviar Inscrição</button>
       </form>

@@ -51,10 +51,23 @@ select:focus {
     outline: none;
 }
 
+/* Centraliza o placeholder no campo de ano de conclusão */
 .date-input {
     text-align: center;
     appearance: none;
 }
+
+/* Negrito no título de "Idiomas" */
+.checkbox-group label {
+    font-weight: bold;
+}
+
+/* Título de "Idiomas" no estilo dos outros rótulos */
+.checkbox-group legend {
+    font-weight: bold;
+    color: #333;
+}
+
 
 .date-input::placeholder {
     color: #aaa;
@@ -86,6 +99,13 @@ select:focus {
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #f9f9f9;
+}
+
+.disponibilidade-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
 }
 
 .disponibilidade-group label {
