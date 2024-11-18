@@ -15,19 +15,17 @@ interface FormData {
   bairro: string;
   cidade: string;
   estado: string;
-  origemConhecimento: string[];
-  habilidades: string;
   sexo: string;
   cargoInteresse: string;
   disponibilidadeSemana: string;
   disponibilidadeNoiteSemana: string;
   disponibilidadeFinaisSemana: string;
   disponibilidadeFeriados: string;
-  idiomas: string[]; // Campo de idiomas como array de strings
+  idiomas: string[]; 
   curriculoNome?: string;
-  formacaoAcademica: string; // Campo para Formação Acadêmica
-  instituicao: string; // Campo para Instituição
-  anoConclusao: string; // Campo para Ano de Conclusão
+  formacaoAcademica: string; 
+  instituicao: string; 
+  anoConclusao: string; 
 }
 
 function InscricaoForm() {
@@ -42,15 +40,13 @@ function InscricaoForm() {
     bairro: '',
     cidade: '',
     estado: '',
-    origemConhecimento: [],
-    habilidades: '',
     sexo: '',
     cargoInteresse: '',
     disponibilidadeSemana: '',
     disponibilidadeNoiteSemana: '',
     disponibilidadeFinaisSemana: '',
     disponibilidadeFeriados: '',
-    idiomas: [], // Inicializa o campo idiomas
+    idiomas: [], 
     formacaoAcademica: '', 
     instituicao: '', 
     anoConclusao: '' 
@@ -60,14 +56,7 @@ function InscricaoForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
-    if (type === 'checkbox' && name === 'origemConhecimento') {
-      setFormData((prevData) => ({
-        ...prevData,
-        origemConhecimento: checked
-          ? [...prevData.origemConhecimento, value]
-          : prevData.origemConhecimento.filter((origem) => origem !== value),
-      }));
-    } else if (type === 'checkbox' && name === 'idiomas') {
+    if (type === 'checkbox' && name === 'idiomas') {
       setFormData((prevData) => ({
         ...prevData,
         idiomas: checked
@@ -111,8 +100,6 @@ function InscricaoForm() {
         bairro: '',
         cidade: '',
         estado: '',
-        origemConhecimento: [],
-        habilidades: '',
         sexo: '',
         cargoInteresse: '',
         disponibilidadeSemana: '',
@@ -188,9 +175,8 @@ function InscricaoForm() {
           className="date-input centered"
           value={formData.anoConclusao}
           onChange={handleChange}
-        required
-      />
-
+          required
+        />
 
         <fieldset className="checkbox-group">
           <legend>Idiomas:</legend>
