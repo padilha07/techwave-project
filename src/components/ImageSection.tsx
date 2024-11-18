@@ -1,4 +1,3 @@
-// src/components/ImageSection.tsx
 export function ImageSection() {
     return (
       <section className="image-section">

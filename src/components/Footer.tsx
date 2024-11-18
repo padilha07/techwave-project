@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState } from 'react';
 import "./Footer.css";
 
 export function Footer() {
@@ -14,17 +14,17 @@ export function Footer() {
         <div className="social-media">
           <p>Junte-se a nós em</p>
           <div className="social-icons">
-            <a href="https://www.facebook.com/InsideAmazon/?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" />
             </a>
-            <a href="https://www.linkedin.com/company/amazon?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-linkedin-in"></i>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="30" />
             </a>
-            <a href="https://www.instagram.com/insideamazon/?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-instagram"></i>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30" />
             </a>
-            <a href="https://twitter.com/amazonnews?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30" />
             </a>
           </div>
         </div>

@@ -31,28 +31,23 @@
   }
   
   .social-icons a {
-    width: 36px;
-    height: 36px;
+    width: auto; /* Remova o tamanho fixo */
+    height: auto; /* Remova o tamanho fixo */
+    background-color: transparent; /* Torne o fundo transparente */
+    border-radius: 0; /* Remove o arredondamento */
+    color: #ffffff; /* Cor dos ícones */
+    font-size: 1.5em; /* Tamanho dos ícones */
+    transition: color 0.3s; /* Animação ao passar o mouse */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3b5998;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-  }
-  
-  .social-icons a {
-    display: inline-block;
-    margin: 0 10px;
-    color: #ffffff;
-    font-size: 1.5em;
-    transition: color 0.3s;
-  }
-  
-  .social-icons a:hover {
-    color: #ffcc33; /* Cor de destaque ao passar o mouse */
-  }
-  
+}
+
+.social-icons i:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
   
   .footer-links {
     display: flex;

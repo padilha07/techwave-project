@@ -51,18 +51,18 @@ select:focus {
     outline: none;
 }
 
-/* Centraliza o placeholder no campo de ano de conclusão */
+
 .date-input {
     text-align: center;
     appearance: none;
 }
 
-/* Negrito no título de "Idiomas" */
+
 .checkbox-group label {
     font-weight: bold;
 }
 
-/* Título de "Idiomas" no estilo dos outros rótulos */
+
 .checkbox-group legend {
     font-weight: bold;
     color: #333;
@@ -72,6 +72,11 @@ select:focus {
 .date-input::placeholder {
     color: #aaa;
 }
+
+.date-input.centered {
+    text-align: center;
+}
+
 
 .date-input::-webkit-calendar-picker-indicator {
     cursor: pointer;

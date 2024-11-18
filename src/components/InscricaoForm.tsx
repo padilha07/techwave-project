@@ -175,7 +175,7 @@ function InscricaoForm() {
         </div>
 
         <h3>Formação Acadêmica</h3>
-        <label>Formação Acadêmica:</label>
+        <label>Curso:</label>
         <input type="text" name="formacaoAcademica" value={formData.formacaoAcademica} onChange={handleChange} required />
 
         <label>Nome da Instituição:</label>
@@ -183,13 +183,13 @@ function InscricaoForm() {
 
         <label>Ano de Conclusão:</label>
         <input
-    type="date"
-    name="anoConclusao"
-    className="date-input centered"
-    value={formData.anoConclusao}
-    onChange={handleChange}
-    required
-/>
+          type="date"
+          name="anoConclusao"
+          className="date-input centered"
+          value={formData.anoConclusao}
+          onChange={handleChange}
+        required
+      />
 
 
         <fieldset className="checkbox-group">
