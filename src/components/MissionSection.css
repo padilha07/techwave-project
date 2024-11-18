@@ -1,5 +1,5 @@
 .mission-section {
-  background-color: #00538c; /* Altere para o tom desejado */
+  background-color: #00538c; /* Fundo azul mais escuro */
   color: #ffffff;
   text-align: center;
   padding: 50px 20px;
@@ -7,8 +7,8 @@
 
 .mission-section h2 {
   font-size: 2em;
-  font-weight: bold;
   margin-bottom: 10px;
+  color: #f3a847; /* Cor dourada/amarela para destaque */
 }
 
 .mission-section p {

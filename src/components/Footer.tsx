@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'; 
 import "./Footer.css";
 
 export function Footer() {
@@ -14,10 +14,18 @@ export function Footer() {
         <div className="social-media">
           <p>Junte-se a nós em</p>
           <div className="social-icons">
-            <a href="#"><img src="https://www.facebook.com/InsideAmazon/?Amazon.jobs=footer" alt="Facebook" /></a>
-            <a href="#"><img src="https://www.linkedin.com/company/amazon?Amazon.jobs=footer" alt="LinkedIn" /></a>
-            <a href="#"><img src="https://www.instagram.com/insideamazon/?Amazon.jobs=footer" alt="Instagram" /></a>
-            <a href="#"><img src="https://twitter.com/amazonnews?Amazon.jobs=footer" alt="Twitter" /></a>
+            <a href="https://www.facebook.com/InsideAmazon/?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/amazon?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/insideamazon/?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/amazonnews?Amazon.jobs=footer" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-twitter"></i>
+            </a>
           </div>
         </div>
 
