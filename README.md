@@ -1,5 +1,3 @@
-
-=======
 # **Techwave Project**
 
 **Site de Vagas - Formulário de Inscrição e Upload de Currículo**
